@@ -1,6 +1,6 @@
 class Pokemon:  # Clase para representar un Pokémon
-    def __init__(self, nombre, tipo, color, altura, peso, habilidad, numero_pokedex):
-        self.nombre = nombre
+    def __init__(self, nombre, tipo, color, altura, peso, habilidad, numero_pokedex): # Caracteristicas posibles
+        self.nombre = nombre 
         self.tipo = tipo
         self.color = color
         self.altura = altura
@@ -10,10 +10,10 @@ class Pokemon:  # Clase para representar un Pokémon
 
     def descripcion(self):
         return f"N°{self.numero_pokedex}: {self.nombre}, Tipo: {self.tipo}, Color: {self.color}, Altura: {self.altura}m, Peso: {self.peso}kg, Habilidad: {self.habilidad}"
-
+# Devuelve los detalles del Pokémon 
 pokedex = []  # Lista para almacenar los Pokémon
 
-def agregar_pokemon():
+def registrar_pokemon(): # Introduce las características del nuevo Pokémon registrado 
     nombre = input("Introduce el nombre del Pokémon: ")
     tipo = input("Introduce el tipo del Pokémon: ")
     color = input("Introduce el color del Pokémon: ")
@@ -28,9 +28,9 @@ def agregar_pokemon():
             return
     
     pokedex.append(Pokemon(nombre, tipo, color, altura, peso, habilidad, numero_pokedex))
-    print("¡El Pokémon ha sido agregado a la Pokédex!")
+    print("¡El Pokémon ha sido registrado en la Pokédex!")
 
-def modificar_pokemon():
+def modificar_pokemon(): # Modificar datos de un Pokémom ya existente
     numero_pokedex = int(input("Introduce el número en la Pokédex del Pokémon a modificar: "))
     
     for p in pokedex:
@@ -57,17 +57,17 @@ def eliminar_pokemon():
     
     print("No se ha encontrado el Pokémon en la Pokédex.")
 
-def mostrar_pokedex():
-    if not pokedex:
+def mostrar_pokedex(): # Muestra directamente todos los Pokémon previamente registrados
+    if not pokedex: # Por si no registraste 
         print("La Pokédex está vacía.")
     else:
         for p in pokedex:
             print(p.descripcion())
 
-def main():
+def main(): # Menú principal para elegir su próxima acción 
     while True:
-        print("\n¿Qué quieres hacer? (Introduce el número de la acción deseada.)")
-        print("1. Agregar un Pokémon")
+        print("\n¿Qué quieres hacer? (Introduce el número de la acción deseada.)") # Introduce el número indicado para elegir una acción 
+        print("1. Registrar un Pokémon")
         print("2. Modificar un Pokémon")
         print("3. Eliminar un Pokémon")
         print("4. Mostrar la Pokédex")
@@ -76,7 +76,7 @@ def main():
         entrada = int(input())
 
         if entrada == 1:
-            agregar_pokemon()
+            registrar_pokemon()
         elif entrada == 2:
             modificar_pokemon()
         elif entrada == 3:
@@ -88,5 +88,5 @@ def main():
         else:
             print("Entrada incorrecta, inténtalo de nuevo.")
 
-if __name__ == "__main__":
+if __name__ == "__main__": # Nombra la funcion main iniciando el programa 
     main()
